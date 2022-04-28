@@ -1,0 +1,27 @@
+example_text = "This is example ASCII text."
+shift = 5
+
+
+def caesar_cipher_encrypt(text, _shift=3):
+    result = ""
+    for i in text:
+        result += chr(ord(i) + _shift)
+    return result
+
+
+def caesar_cipher_decrypt(encrypted_text, _shift=3):
+    result = ""
+    for i in encrypted_text:
+        result += chr(ord(i) - _shift)
+    return result
+
+
+encrypted = caesar_cipher_encrypt(example_text, 5)
+print(f"Example: {example_text}")
+print(f"Encrypted: {encrypted}")
+print(f"Decrypted: {caesar_cipher_decrypt(encrypted, 5)}")
+
+for this_shift in range(3, 30):
+    encrypted_range = caesar_cipher_encrypt(example_text, this_shift)
+    print(f"Shift: {this_shift}, Encrypted: {encrypted_range}")
+    print(f"Decrypted: {caesar_cipher_decrypt(encrypted_range, this_shift)}")
